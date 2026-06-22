@@ -10,7 +10,38 @@ function computerPlay() {
 // uncomment to test the random pick of the array
 console.log("Your opponent has made their move, your turn...")
 
+
+function playerSelection(){
+    let playerSelect = prompt("Choose: Rock , Paper, Scissors")
+    if (playerSelect === null) return null;
+    const player = playerSelect.toLowerCase();
+    let moves = ["rock", "paper", "scissors"]
+
+
+    while(true){
+
+        if(!moves.includes(player)) {
+            console.log("Must chose rock, paper or scissors!")
+            return playerSelection();
+
+        }
+
+        if (playerSelect == ""){ 
+            return playerSelection();
+            console.log("Choose again!");
+        }
+        else{
+            return playerSelect;
+        }
+    }
+}
+
 function playRound(playerSelection, computerSelection) {
+    if (playerSelection === null){
+        console.log("You gave up...")
+        return null;
+    }
+    /// I added the above because if we cancel without input, the console gives out an undefined error. now it gives a nicer message 
     const player = playerSelection.toLowerCase();
     const computer = computerSelection.toLowerCase();
 
@@ -25,20 +56,23 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "You Lose! " + computerSelection + " beats " + playerSelection;
     }
+
+
 }
-console.log(playRound("paper",computerPlay()))
+console.log(playRound(playerSelection(),computerPlay()))
 
 function game(playerSelection, computerSelection)
 {
-    const player = playerSelection.toLowerCase();
-    const computer = computerSelection.toLowerCase();
-    const playerscore = 0
-    const computerscore = 0
+//     const player = playerSelection.toLowerCase();
+//     const computer = computerSelection.toLowerCase();
+    // i commented this out because it always gives an error, if it turns out to not be needed we delete
+    let playerscore = 0
+    let computerscore = 0 // const instead of let was giving out an error 
 
     for (let rounds = 0; rounds < 5; rounds ++)
     {
         let player = prompt("Play rock, paper or scissors!");
-        playRound(playerSelection)
+        playRound(playerSelection, computerSelection)
         
         if (playRound("It's a Tie!"))
         {
