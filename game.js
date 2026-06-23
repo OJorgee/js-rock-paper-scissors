@@ -9,7 +9,7 @@ alert("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
     "Time is running out for you, Web Dev. \nMake your choice.")
 
 function playerSelection() {
-    let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer Tools) \n" +
+    let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools) \n" +
         "(If console doesn't work press cancel and refresh the page) \n" +
         "Choose: Rock, Paper, or Scissors");
     if (input === null) return null;
@@ -42,7 +42,7 @@ function game() {
 
     for (let i = 1; i <= 5; i++) {
         let p = playerSelection();
-        if (p === null) { console.log("Game Aborted, refresh the page to restart."); return; }
+        if (p === null) { alert("Game Aborted, refresh the page to restart."); return; }
         
         let c = computerPlay();
         let result = playRound(p, c);
@@ -62,13 +62,13 @@ function game() {
     if (playerScore < computerScore)
     {
         alert("You weren't good enough to best me! All you repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!! \n" +
-            "Click OK and refresh the page to play again."
+            "Refresh the page to play again."
         )
     }
     else if (playerScore > computerScore)
     {
         alert("Congratulations... You have defeated me! Your repositories are safe... for now... \n" +
-            "Click OK and refresh the page to play again."
+            "Refresh the page to play again."
         )
     }
     else
