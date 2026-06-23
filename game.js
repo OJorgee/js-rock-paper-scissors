@@ -29,8 +29,8 @@
   }
 
   function playRound(playerSelection, computerSelection) {
-    player = playerSelection.toLowerCase().trim()
-    computer = computerSelection.toLowerCase().trim()
+    player = playerSelection
+    computer = computerSelection
 
     if (player === computer) return "tie"
     if (
