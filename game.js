@@ -3,7 +3,12 @@ function computerPlay() {
     return moves[Math.floor(Math.random() * moves.length)];
 }
 
-function getPlayerChoice() {
+console.log("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
+    "All your life you have used <div> instead of <section> and ignored proper indenting and variable naming conventions. \n" +
+    "If you want to get your GitHub repositories back, you have to play five rounds of rock, paper, scissors with me. \n" +
+    "Time is running out for you, Web Dev. \nMake your choice.")
+
+function playerSelection() {
     let input = prompt("Choose: Rock, Paper, or Scissors");
     if (input === null) return null;
     
@@ -12,15 +17,18 @@ function getPlayerChoice() {
         return choice;
     } else {
         alert("Invalid choice! Please try again.");
-        return getPlayerChoice(); 
+        return playerSelection(); 
     }
 }
 
-function playRound(player, computer) {
-    if (player === computer) return "tie";
-    if ((player === "rock" && computer === "scissors") || 
-        (player === "paper" && computer === "rock") || 
-        (player === "scissors" && computer === "paper")) {
+function playRound(playerSelection, computerSelection) {
+    player = playerSelection
+    computer = computerSelection
+
+    if (playerSelection === computerSelection) return "tie";
+    if ((playerSelection === "rock" && computerSelection === "scissors") || 
+        (playerSelection === "paper" && computerSelection === "rock") || 
+        (playerSelection === "scissors" && computerSelection === "paper")) {
         return "win";
     }
     return "lose";
@@ -31,8 +39,8 @@ function game() {
     let computerScore = 0;
 
     for (let i = 1; i <= 5; i++) {
-        let p = getPlayerChoice();
-        if (p === null) { console.log("Game Aborted"); return; }
+        let p = playerSelection();
+        if (p === null) { console.log("Game Aborted, refresh the page to restart."); return; }
         
         let c = computerPlay();
         let result = playRound(p, c);
@@ -49,6 +57,19 @@ function game() {
     }
 
     console.log("Final Result - Player: " + playerScore + " | Computer: " + computerScore);
+    if (playerScore < computerScore)
+    {
+        console.log("You weren't good enough to best me! All you repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!!")
+    }
+    else if (playerScore > computerScore)
+    {
+        console.log("Congratulations... You have defeated me! Your repositories are safe... for now...")
+    }
+    else
+    {
+        console.log("What happens now...??? Let's play rock, paper, scissors to decide a winner!")
+        game();
+    }
 }
 
 game();
