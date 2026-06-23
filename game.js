@@ -9,7 +9,7 @@ alert("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
     "Time is running out for you, Web Dev. \nMake your choice.")
 
 function playerSelection() {
-    let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools) \n" +
+    let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools -> Console) \n" +
         "(If console doesn't work press cancel and refresh the page) \n" +
         "Choose: Rock, Paper, or Scissors");
     if (input === null) return null;
