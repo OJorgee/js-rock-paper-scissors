@@ -3,13 +3,15 @@ function computerPlay() {
     return moves[Math.floor(Math.random() * moves.length)];
 }
 
-console.log("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
+alert("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
     "All your life you have used <div> instead of <section> and ignored proper indenting and variable naming conventions. \n" +
     "If you want to get your GitHub repositories back, you have to play five rounds of rock, paper, scissors with me. \n" +
     "Time is running out for you, Web Dev. \nMake your choice.")
 
 function playerSelection() {
-    let input = prompt("Choose: Rock, Paper, or Scissors");
+    let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer Tools) \n" +
+        "(If console doesn't work press cancel and refresh the page) \n" +
+        "Choose: Rock, Paper, or Scissors");
     if (input === null) return null;
     
     let choice = input.toLowerCase().trim();
@@ -59,15 +61,19 @@ function game() {
     console.log("Final Result - Player: " + playerScore + " | Computer: " + computerScore);
     if (playerScore < computerScore)
     {
-        console.log("You weren't good enough to best me! All you repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!!")
+        alert("You weren't good enough to best me! All you repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!! \n" +
+            "Click OK and refresh the page to play again."
+        )
     }
     else if (playerScore > computerScore)
     {
-        console.log("Congratulations... You have defeated me! Your repositories are safe... for now...")
+        alert("Congratulations... You have defeated me! Your repositories are safe... for now... \n" +
+            "Click OK and refresh the page to play again."
+        )
     }
     else
     {
-        console.log("What happens now...??? Let's play rock, paper, scissors to decide a winner!")
+        alert("What happens now...??? Let's play rock, paper, scissors to decide a winner!")
         game();
     }
 }
