@@ -1,65 +1,100 @@
 function computerPlay() {
-  let moves = ["Rock", "Paper", "Scissors"]
-  let gameMoves = Math.floor(Math.random() * moves.length)
-  let computerSelection = moves[gameMoves]
+    let moves = ["rock", "paper", "scissors"]
+    let gameMoves = Math.floor(Math.random() * moves.length)
+    let computerSelection = moves[gameMoves]
 
-  return computerSelection
+    return computerSelection
 }
 
- console.log(computerPlay())
-// uncomment to test the random pick of the array
-console.log("Your opponent has made their move, your turn...")
+let computerResult = computerPlay()
+console.log(computerResult) // comment or delete when assignment is finished
 
+console.log("Hello, Web Dev. I'm an evil AI. I want to play a game.\n" +
+    "All your life you have used <div> instead of <section> and ignored proper indenting and variable naming conventions. \n" +
+    "If you want to get your GitHub repositories back, you have to play five rounds of rock, paper, scissors with me. \n" +
+    "Time is running out for you, Web Dev. \nMake your choice.")
 
-function playerSelection(){
+function playerSelection() {
     let playerSelect = prompt("Choose: Rock , Paper, Scissors")
-    if (playerSelect === null) return null;
-    const player = playerSelect.toLowerCase();
-    let moves = ["rock", "paper", "scissors"]
+    if (playerSelect === null) {
+        return console.log("You gave up...")
+    } else {
+        let player = playerSelect.toLowerCase();
+        let moves = ["rock", "paper", "scissors"]
 
 
-    while(true){
+        while (true) {
 
-        if(!moves.includes(player)) {
-            console.log("Must chose rock, paper or scissors!")
-            return playerSelection();
+            if (!moves.includes(player)) {
+                console.log("Must chose rock, paper or scissors!")
+                return playerSelection();
 
-        }
+            }
 
-        if (playerSelect == ""){ 
-            return playerSelection();
-            console.log("Choose again!");
-        }
-        else{
-            return playerSelect;
+            if (playerSelect == "") {
+                return playerSelection();
+                console.log("Choose again!");
+            }
+            else {
+                return playerSelect;
+            }
         }
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === null){
+let playerResult = playerSelection()
+console.log("Your pick: " + playerResult) // comment when assignment is finished
+
+function playRound(playerResult, computerResult) {
+    if (playerResult === null) {
         console.log("You gave up...")
         return null;
     }
-    /// I added the above because if we cancel without input, the console gives out an undefined error. now it gives a nicer message 
-    const player = playerSelection.toLowerCase();
-    const computer = computerSelection.toLowerCase();
 
-    if (player === computer) {
-        return "It's a Tie!";
-    } else if (
-        (player === "rock" && computer === "scissors") ||
-        (player === "paper" && computer === "rock") ||
-        (player === "scissors" && computer === "paper")
-    ) {
-        return "You Win! " + playerSelection + " beats " + computerSelection;
-    } else {
-        return "You Lose! " + computerSelection + " beats " + playerSelection;
+    // 1 - player win
+    // 2- player lose
+    // 3 - tie
+
+    switch (playerResult) {
+        case "rock":
+            if (computerResult === "scissors") {
+                return result = 1
+                break
+            } else if (computerResult === "paper") {
+                return result = 2
+                break
+            } else {
+                return result = 3
+                break
+            }
+        case "scissors":
+            if (computerResult === "scissors") {
+                return result = 3
+                break
+            } else if (computerResult === "paper") {
+                return result = 1
+                break
+            } else {
+                return result = 3
+                break
+            }
+        case "paper":
+            if (computerResult === "scissors") {
+                return result = 2
+                break
+            } else if (computerResult === "paper") {
+                return result = 3
+                break
+            } else {
+                return result = 1
+                break
+            }
     }
 
-
 }
-console.log(playRound(playerSelection(),computerPlay()))
+
+let matchResult = playRound(playerResult, computerResult)
+console.log("result: " + matchResult)
 
 function game(playerSelection, computerSelection)
 {
