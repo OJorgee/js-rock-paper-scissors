@@ -13,7 +13,7 @@
 
   function playerSelection() {
     let input = prompt(
-      "To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools) \n" +
+      "To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools -> Console) \n" +
         "(If console doesn't work press cancel and refresh the page) \n" +
         "Choose: Rock, Paper, or Scissors.",
     )
@@ -72,19 +72,13 @@
       "Final Result - Player: " + playerScore + " | Computer: " + computerScore,
     )
     if (playerScore < computerScore) {
-      alert(
-        "You weren't good enough to best me! All your repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!! \n" +
-          "Refresh the page to play again."
-      )
+      alert("You weren't good enough to best me! All your repositories will be deleted forever... MUAHAHAHAHAHAHAHAHA! Now go learn to CODE!!! \n" +
+          "Refresh the page to play again.")
     } else if (playerScore > computerScore) {
-      alert(
-        "Congratulations... You have defeated me! Your repositories are safe... for now... \n" +
-          "Refresh the page to play again."
-      )
+      alert("Congratulations... You have defeated me! Your repositories are safe... for now... \n" +
+          "Refresh the page to play again.")
     } else {
-      alert(
-        "What happens now...??? Let's play rock, paper, scissors to decide a winner!"
-      )
+      alert("What happens now...??? Let's play rock, paper, scissors to decide a winner!")
       game()
     }
   }
