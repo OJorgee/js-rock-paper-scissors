@@ -14,7 +14,7 @@
   function playerSelection() {
     let input = prompt(
       "To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools -> Console) \n" +
-        "(If console doesn't work press cancel and refresh the page) \n" +
+        "(If console doesn't work press Cancel, then OK and refresh the page) \n" +
         "Choose: Rock, Paper, or Scissors.",
     )
     if (input === null) return null
@@ -59,12 +59,12 @@
 
       if (result === "win") {
         playerScore++
-        console.log("Round " + i + ": You Win! " + p + " beats " + c)
+        console.log("Round " + i + ": You Win! " + p + " beats " + c + ", it's " + playerScore + " - " + computerScore)
       } else if (result === "lose") {
         computerScore++
-        console.log("Round " + i + ": You Lose! " + c + " beats " + p)
+        console.log("Round " + i + ": You Lose! " + c + " beats " + p + ", it's " + playerScore + " - " + computerScore)
       } else {
-        console.log("Round " + i + ": It's a Tie!")
+        console.log("Round " + i + ": It's a Tie! It's " + playerScore + " - " + computerScore)
       }
     }
 
